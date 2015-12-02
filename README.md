@@ -20,7 +20,7 @@ Here are some of the documents from Apple that informed the style guide. If some
 * `init` and `dealloc` should always be placed at the top of the implementation
 * Use `#pragma mark -` to categorize methods in functional groupings and protocol/delegate implementations following this general structure.
 
-```
+```objc
 #pragma mark - Static Methods
 #pragma mark - Lifecycle
 
@@ -72,7 +72,7 @@ Here are some of the documents from Apple that informed the style guide. If some
 
 **For example:**
 
-```
+```objc
 if (user.isHappy) {
     // Do something
 }
@@ -86,7 +86,7 @@ else {
 
 **For example**
 
-```
+```objc
 - (void)initWithUser:(User *)newUser firstname:(NSString *)firstname lastname:(NSString *)lastname;
 ```
 
@@ -104,13 +104,13 @@ Long, descriptive method and variable names are good.
 
 **For example:**
 
-```
+```objc
 UIButton *settingsButton;
 ```
 
 **Not**
 
-```
+```objc
 UIButton *setBut;
 ```
 
@@ -138,7 +138,7 @@ Constants are preferred over in-line string literals or numbers, as they allow f
 
 **For example:**
 
-```
+```objc
 static NSString * const KCPAboutViewControllerCompanyName = @"Kinetic Cafe Inc.";
 
 static const CGFloat KCPImageThumbnailHeight = 50.0;
@@ -146,7 +146,7 @@ static const CGFloat KCPImageThumbnailHeight = 50.0;
 
 **Not:**
 
-```
+```objc
 #define CompanyName @"Kinetic Cafe Inc."
 
 #define thumbnailHeight 2
@@ -159,13 +159,13 @@ static const CGFloat KCPImageThumbnailHeight = 50.0;
 
 **For example:**
 
-```
+```objc
 static const NSTimeInterval KCPNavigationViewControllerNavigationFadeAnimationDuration = 0.3;
 ```
 
 **Not:**
 
-```
+```objc
 static const NSTimeInterval fadetime = 1.7;
 ```
 
@@ -174,13 +174,13 @@ static const NSTimeInterval fadetime = 1.7;
 
 **For example:**
 
-```
+```objc
 @synthesize descriptiveVariableName = _descriptiveVariableName;
 ```
 
 **Not:**
 
-```
+```objc
 id varnm;
 ```
 
@@ -188,7 +188,7 @@ id varnm;
 
 **Example:**
 
-```
+```objc
 typedef NS_ENUM(NSInteger, NYTAdRequestState) {
     NYTAdRequestStateInactive,
     NYTAdRequestStateLoading
@@ -242,7 +242,7 @@ Private properties should be declared in class extensions (anonymous categories)
 
 **For example:**
 
-```
+```objc
 @interface NYTAdvertisement ()
 
 @property (nonatomic, strong) GADBannerView *googleAdView;
@@ -258,14 +258,14 @@ Dot notation should **always** be used for accessing and mutating properties. Br
 
 **For example:**
 
-```
+```objc
 view.backgroundColor = [UIColor orangeColor];
 [UIApplication sharedApplication].delegate;
 ```
 
 **Not:**
 
-```
+```objc
 [view setBackgroundColor:[UIColor orangeColor]];
 UIApplication.sharedApplication.delegate;
 ```
@@ -280,7 +280,7 @@ Local variables should not contain underscores.
 
 **For example:**
 
-```
+```objc
 @interface NYTSection: NSObject
 
 @property (nonatomic) NSString *headline;
@@ -290,7 +290,7 @@ Local variables should not contain underscores.
 
 **Not:**
 
-```
+```objc
 @interface NYTSection : NSObject {
     NSString *headline;
 }
@@ -306,7 +306,7 @@ The usage of the word "and" is reserved.  It should not be used for multiple par
 
 **Preferred:**
 
-```
+```objc
 - (void)setExampleText:(NSString *)text image:(UIImage *)image;
 - (void)sendAction:(SEL)aSelector to:(id)anObject forAllCells:(BOOL)flag;
 - (id)viewWithTag:(NSInteger)tag;
@@ -315,7 +315,7 @@ The usage of the word "and" is reserved.  It should not be used for multiple par
 
 **Not Preferred:**
 
-```
+```objc
 -(void)setT:(NSString *)text i:(UIImage *)image;
 - (void)sendAction:(SEL)aSelector :(id)anObject :(BOOL)flag;
 - (id)taggedView:(NSInteger)tag;
@@ -329,13 +329,13 @@ The ternary operator, `?` , should only be used when it increases clarity or cod
 
 **For example:**
 
-```
+```objc
 result = a > b ? x : y;
 ```
 
 **Not:**
 
-```
+```objc
 result = a > b ? x = c > d ? c : d : y;
 ```
 
@@ -345,7 +345,7 @@ When coding with conditionals, the left hand margin of the code should be the "g
 
 **Preferred:**
 
-```
+```objc
 - (void)someMethod {
   if (![someOther boolValue]) {
 	return;
@@ -357,7 +357,7 @@ When coding with conditionals, the left hand margin of the code should be the "g
 
 **Not Preferred:**
 
-```
+```objc
 - (void)someMethod {
   if ([someOther boolValue]) {
     //Do something important
@@ -371,7 +371,7 @@ Conditional bodies should always use braces even when a conditional body could b
 
 **For example:**
 
-```
+```objc
 if (!error) {
     return success;
 }
@@ -379,14 +379,14 @@ if (!error) {
 
 **Not:**
 
-```
+```objc
 if (!error)
     return success;
 ```
 
 or
 
-```
+```objc
 if (!error) return success;
 ```
 
@@ -396,7 +396,7 @@ When methods return an error parameter by reference, switch on the returned valu
 
 **For example:**
 
-```
+```objc
 NSError *error;
 if (![self trySomethingWithError:&error]) {
     // Handle Error
@@ -405,7 +405,7 @@ if (![self trySomethingWithError:&error]) {
 
 **Not:**
 
-```
+```objc
 NSError *error;
 [self trySomethingWithError:&error];
 if (error) {
