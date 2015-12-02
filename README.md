@@ -14,36 +14,12 @@ Here are some of the documents from Apple that informed the style guide. If some
 ## Table of Contents
 
 * [Code Organization](#code-organization)
-<!--* [Test](#dot-notation-syntax)
-* [Dot Notation Syntax](#dot-notation-syntax)
-* [Spacing](#spacing)
-* [Conditionals](#conditionals)
-  * [Ternary Operator](#ternary-operator)
-* [Error handling](#error-handling)
-* [Methods](#methods)
-* [Variables](#variables)
-* [Naming](#naming)
-  * [Categories](#categories)
-* [Comments](#comments)
-* [Init & Dealloc](#init-and-dealloc)
-* [Literals](#literals)
-* [CGRect Functions](#cgrect-functions)
-* [Constants](#constants)
-* [Enumerated Types](#enumerated-types)
-* [Bitmasks](#bitmasks)
-* [Private Properties](#private-properties)
-* [Image Naming](#image-naming)
-* [Booleans](#booleans)
-* [Singletons](#singletons)
-* [Imports](#imports)
-* [Protocols](#protocols)
-* [Xcode Project](#xcode-project)-->
 
 ## Code Organization
 
 Use `#pragma mark -` to categorize methods in functional groupings and protocol/delegate implementations following this general structure.
 
-```
+```objc
 #pragma mark - Static Methods
 #pragma mark - Lifecycle
 
