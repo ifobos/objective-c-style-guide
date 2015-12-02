@@ -1,8 +1,6 @@
-# NYTimes Objective-C Style Guide
+# Kinetic Cafe Objective-C Style Guide
 
-This style guide outlines the coding conventions of the iOS teams at The New York Times. We welcome your feedback in [issues](https://github.com/NYTimes/objective-c-style-guide/issues) and [pull requests](https://github.com/NYTimes/objective-c-style-guide/pulls). Also, [we’re hiring](http://www.nytco.com/careers/).
-
-Thanks to all of [our contributors](https://github.com/NYTimes/objective-c-style-guide/graphs/contributors).
+This is work-in-progress style guide for iOS teams in Kinetic Cafe Inc. 
 
 ## Introduction
 
@@ -15,6 +13,9 @@ Here are some of the documents from Apple that informed the style guide. If some
 
 ## Table of Contents
 
+* [Code Organization](#code-organization)
+<!--
+* [Test](#dot-notation-syntax)
 * [Dot Notation Syntax](#dot-notation-syntax)
 * [Spacing](#spacing)
 * [Conditionals](#conditionals)
@@ -38,8 +39,68 @@ Here are some of the documents from Apple that informed the style guide. If some
 * [Imports](#imports)
 * [Protocols](#protocols)
 * [Xcode Project](#xcode-project)
+-->
 
-## Dot Notation Syntax
+## Code Organization
+
+Use `#pragma mark -` to categorize methods in functional groupings and protocol/delegate implementations following this general structure.
+
+```
+#pragma mark - Static Methods
+#pragma mark - Lifecycle
+
+- (instancetype)init {}
+- (void)dealloc {}
+
+//If this object conforms to NSCopying
+#pragma mark - NSCopying
+
+- (id)copyWithZone:(NSZone *)zone {}
+
+//If this is a NSObject subclass
+#pragma mark - NSObject
+
+- (NSString *)description {}
+
+//If this object is a UIViewController subclass
+#pragma mark - View Lifecycle
+
+- (void)viewDidLoad {}
+- (void)viewWillAppear:(BOOL)animated {}
+- (void)didReceiveMemoryWarning {}
+
+#pragma mark - Overriding Methods
+
+- (void)setParentProperty:(id)value {}
+- (id)parentProperty {}
+
+#pragma mark - Public
+
+- (void)publicMethod {}
+
+#pragma mark - Private
+
+- (void)privateMethod {}
+
+#pragma mark - Protocols conformance
+#pragma mark - UITextFieldDelegate
+#pragma mark - UITableViewDataSource
+#pragma mark - UITableViewDelegate
+```
+
+## Spacing
+## Naming
+## Properties
+## Methods
+## Variables
+## Constants
+## Enumeration Types
+## Bitmasks
+## Singletons
+## Comments
+
+
+<!--## Dot Notation Syntax
 
 Dot notation should **always** be used for accessing and mutating properties. Bracket notation is preferred in all other instances.
 
@@ -506,7 +567,7 @@ This helps disambiguate in cases when an object is the delegate for multiple sim
 ```objc
 - (void)didSelectTableRowAtIndexPath:(NSIndexPath *)indexPath;
 ```
-
+-->
 ## Xcode project
 
 The physical files should be kept in sync with the Xcode project files in order to avoid file sprawl. Any Xcode groups created should be reflected by folders in the filesystem. Code should be grouped not only by type, but also by feature for greater clarity.
@@ -517,11 +578,7 @@ When possible, always turn on “Treat Warnings as Errors” in the target’s B
 
 If ours doesn’t fit your tastes, have a look at some other style guides:
 
-* [Google](http://google-styleguide.googlecode.com/svn/trunk/objcguide.xml)
+* [NY Time](https://github.com/NYTimes/objective-c-style-guide)
+* [RayWenderlich](https://github.com/raywenderlich/objective-c-style-guide)
 * [GitHub](https://github.com/github/objective-c-style-guide)
-* [Adium](https://trac.adium.im/wiki/CodingStyle)
-* [Sam Soffes](https://gist.github.com/soffes/812796)
-* [CocoaDevCentral](http://cocoadevcentral.com/articles/000082.php)
-* [Luke Redpath](http://lukeredpath.co.uk/blog/2011/06/28/my-objective-c-style-guide/)
-* [Marcus Zarra](http://www.cimgf.com/zds-code-style-guide/)
-* [Wikimedia](https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/iOS/ObjectiveCStyleGuide)
+* [Robot & Pencil](https://github.com/RobotsAndPencils/objective-c-style-guide)
