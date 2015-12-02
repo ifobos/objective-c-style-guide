@@ -14,8 +14,7 @@ Here are some of the documents from Apple that informed the style guide. If some
 ## Table of Contents
 
 * [Code Organization](#code-organization)
-<!--
-* [Test](#dot-notation-syntax)
+<!--* [Test](#dot-notation-syntax)
 * [Dot Notation Syntax](#dot-notation-syntax)
 * [Spacing](#spacing)
 * [Conditionals](#conditionals)
@@ -38,8 +37,7 @@ Here are some of the documents from Apple that informed the style guide. If some
 * [Singletons](#singletons)
 * [Imports](#imports)
 * [Protocols](#protocols)
-* [Xcode Project](#xcode-project)
--->
+* [Xcode Project](#xcode-project)-->
 
 ## Code Organization
 
