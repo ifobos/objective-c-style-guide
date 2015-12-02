@@ -70,6 +70,7 @@ Here are some of the documents from Apple that informed the style guide. If some
 ## Spacing
 
 ### Indentation
+
 * **Indent using 4 spaces. Never indent with tabs.** Be sure to set this preference in Xcode.
 * Method braces and other braces (`if`/`else`/`switch`/`while` etc.) always open on the same line as the statement but close on a new line.
 * One whitespace before the parenthesis, no space inside parenthesis
@@ -85,6 +86,7 @@ else {
 }
 ```
 ### Line Break and Whitespace
+
 * There should be exactly one blank line between methods to aid in visual clarity and organization.
 * Whitespace within methods should be used to separate functionality (though often this can indicate an opportunity to split the method into several, smaller methods). In methods with long or verbose names, a single line of whitespace may be used to provide visual separation before the method’s body.
 
@@ -96,7 +98,8 @@ else {
 
 * `@synthesize` and `@dynamic` should each be declared on new lines in the implementation.
 
-### Alignmnent
+### Alignment
+
 * Align "=" signs within the same code block
 
 
@@ -278,7 +281,7 @@ UIApplication.sharedApplication.delegate;
 
 When using properties, instance variables should always be accessed and mutated using `self.`. This means that all properties will be visually distinct, as they will all be prefaced with `self.`. 
 
-An exception to this: inside initializers, the backing instance variable (i.e. _variableName) should be used directly to avoid any potential side effects of the getters/setters.
+An exception to this: inside initializers, the backing instance variable (i.e. `_variableName`) should be used directly to avoid any potential side effects of the getters/setters.
 
 Local variables should not contain underscores.
 
@@ -287,7 +290,21 @@ Local variables should not contain underscores.
 ```objc
 @interface NYTSection: NSObject
 
+- (instancetype)initWithHeadline:(NSString *)headline;
 @property (nonatomic) NSString *headline;
+
+@end
+
+@implementation NYTSection
+
+- (instancetype)initWithHeadline:(NSString *)headline {
+	self = [super init];
+	if (self) {
+		_headline = headline;
+	}
+	
+	return self;
+}
 
 @end
 ```
@@ -606,6 +623,7 @@ This helps disambiguate in cases when an object is the delegate for multiple sim
 - (void)didSelectTableRowAtIndexPath:(NSIndexPath *)indexPath;
 ```
 -->
+
 ## Xcode project
 
 The physical files should be kept in sync with the Xcode project files in order to avoid file sprawl. Any Xcode groups created should be reflected by folders in the filesystem. Code should be grouped not only by type, but also by feature for greater clarity.
