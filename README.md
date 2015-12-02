@@ -14,6 +14,10 @@ Here are some of the documents from Apple that informed the style guide. If some
 ## Table of Contents
 
 * [Code Organization](#code-organization)
+* [Spacing](#spacing)
+* [Naming](#naming)
+* [Properties](#properties)
+* [Methods](#methods)
 
 ## Code Organization
 
