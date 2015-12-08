@@ -196,9 +196,9 @@ id varnm;
 **Example:**
 
 ```objc
-typedef NS_ENUM(NSInteger, NYTAdRequestState) {
-    NYTAdRequestStateInactive,
-    NYTAdRequestStateLoading
+typedef NS_ENUM(NSInteger, KCPStoryType) {
+    KCPStoryTypeOld,
+    KCPStoryTypeNew
 };
 ```
 
@@ -209,15 +209,15 @@ Categories may be used to concisely segment functionality and should be named to
 **For example:**
 
 ```objc
-@interface UIViewController (NYTMediaPlaying)
+@interface UIViewController (KCPAutoHideNavBar)
 @interface NSString (NSStringEncodingDetection)
 ```
 
 **Not:**
 
 ```objc
-@interface NYTAdvertisement (private)
-@interface NSString (NYTAdditions)
+@interface KCPModel (private)
+@interface NSString (KCPRelative)
 ```
 
 Methods and properties added in categories should be named with an app- or organization-specific prefix. This avoids unintentionally overriding an existing method, and it reduces the chance of two categories from different libraries adding a method of the same name. (The Objective-C runtime doesn’t specify which method will be called in the latter case, which can lead to unintended effects.)
@@ -225,15 +225,15 @@ Methods and properties added in categories should be named with an app- or organ
 **For example:**
 
 ```objc
-@interface NSArray (NYTAccessors)
-- (id)nyt_objectOrNilAtIndex:(NSUInteger)index;
+@interface NSArray (KCPAccessors)
+- (id)kcp_objectOrNilAtIndex:(NSUInteger)index;
 @end
 ```
 
 **Not:**
 
 ```objc
-@interface NSArray (NYTAccessors)
+@interface NSArray (KCPAccessors)
 - (id)objectOrNilAtIndex:(NSUInteger)index;
 @end
 ```
@@ -250,11 +250,11 @@ Private properties should be declared in class extensions (anonymous categories)
 **For example:**
 
 ```objc
-@interface NYTAdvertisement ()
+@interface KCPRepository ()
 
-@property (nonatomic, strong) GADBannerView *googleAdView;
-@property (nonatomic, strong) ADBannerView *iAdView;
-@property (nonatomic, strong) UIWebView *adXWebView;
+@property (nonatomic, strong) UIView *topView;
+@property (nonatomic, strong) UIView *bannerView;
+@property (nonatomic, strong) UIWebView *webView;
 
 @end
 ```
@@ -288,14 +288,14 @@ Local variables should not contain underscores.
 **For example:**
 
 ```objc
-@interface NYTSection: NSObject
+@interface KCPSection: NSObject
 
 - (instancetype)initWithHeadline:(NSString *)headline;
 @property (nonatomic) NSString *headline;
 
 @end
 
-@implementation NYTSection
+@implementation KCPSection
 
 - (instancetype)initWithHeadline:(NSString *)headline {
 	self = [super init];
@@ -312,7 +312,7 @@ Local variables should not contain underscores.
 **Not:**
 
 ```objc
-@interface NYTSection : NSObject {
+@interface KCPSection : NSObject {
     NSString *headline;
 }
 ```
@@ -388,7 +388,7 @@ When coding with conditionals, the left hand margin of the code should be the "g
 
 ### Conditionals
 
-Conditional bodies should always use braces even when a conditional body could be written without braces (e.g., it is one line only) to prevent []errors](https://github.com/NYTimes/objective-c-style-guide/issues/26#issuecomment-22074256). These errors include adding a second line and expecting it to be part of the if-statement. Another, [even more dangerous defect](http://programmers.stackexchange.com/a/16530) may happen where the line “inside” the if-statement is commented out, and the next line unwittingly becomes part of the if-statement. In addition, this style is more consistent with all other conditionals, and therefore more easily scannable.
+Conditional bodies should always use braces even when a conditional body could be written without braces (e.g., it is one line only) to prevent [errors](https://github.com/NYTimes/objective-c-style-guide/issues/26#issuecomment-22074256). These errors include adding a second line and expecting it to be part of the if-statement. Another, [even more dangerous defect](http://programmers.stackexchange.com/a/16530) may happen where the line “inside” the if-statement is commented out, and the next line unwittingly becomes part of the if-statement. In addition, this style is more consistent with all other conditionals, and therefore more easily scannable.
 
 **For example:**
 
