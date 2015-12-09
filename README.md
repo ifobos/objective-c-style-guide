@@ -559,9 +559,9 @@ When using `enum`s, use the new fixed underlying type specification, which provi
 **Example:**
 
 ```objc
-typedef NS_ENUM(NSInteger, NYTAdRequestState) {
-    NYTAdRequestStateInactive,
-    NYTAdRequestStateLoading
+typedef NS_ENUM(NSInteger, KCPUserState) {
+    KCPUserStateNotSignedIn,
+    KCPUserStateSignedIn
 };
 ```
 
@@ -572,31 +572,33 @@ When working with bitmasks, use the `NS_OPTIONS` macro.
 **Example:**
 
 ```objc
-typedef NS_OPTIONS(NSUInteger, NYTAdCategory) {
-    NYTAdCategoryAutos      = 1 << 0,
-    NYTAdCategoryJobs       = 1 << 1,
-    NYTAdCategoryRealState  = 1 << 2,
-    NYTAdCategoryTechnology = 1 << 3
+typedef NS_OPTIONS(NSUInteger, KCPCategory) {
+   	KCPCategoryFootwears    = 1 << 0,
+    KCPCategoryHandbags     = 1 << 1,
+    KCPCategoryAccessories  = 1 << 2,
+    KCPCategoryRandom		 = 1 << 3
 };
 ```
 
 ## Singletons
 
-Singleton objects should use a thread-safe pattern for creating their shared instance.
+* Singleton objects should use a thread-safe pattern for creating their shared instance.
+* The naming of the singleton variable should be clear instead of using a generic "sharedInstance" for all cases. For example, sharedManager, standardApplication. 
+
 ```objc
 
-static id sharedInstance = nil;
+static id _sharedManager = nil;
 
 //Some code
 
-+ (instancetype)sharedInstance {
++ (instancetype)sharedManager {
 
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sharedInstance = [[[self class] alloc] init];
+        _sharedManager = [[[self class] alloc] init];
     });
 
-    return sharedInstance;
+    return _sharedManager;
 }
 ```
 
@@ -609,7 +611,7 @@ Block comments should generally be avoided, as code should be as self-documentin
 
 ## Xcode project
 
-The physical files should be kept in sync with the Xcode project files in order to avoid file sprawl. Any Xcode groups created should be reflected by folders in the filesystem. Code should be grouped not only by type, but also by feature for greater clarity.
+The physical files should be kept in sync with the Xcode project files in order to avoid file sprawl. **Any Xcode groups created should be reflected by folders in the filesystem.** Code should be grouped not only by type, but also by feature for greater clarity.
 
 When possible, always turn on “Treat Warnings as Errors” in the target’s Build Settings and enable as many [additional warnings](http://boredzo.org/blog/archives/2009-11-07/warnings) as possible. If you need to ignore a specific warning, use [Clang’s pragma feature](http://clang.llvm.org/docs/UsersManual.html#controlling-diagnostics-via-pragmas).
 
