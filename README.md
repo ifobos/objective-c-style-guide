@@ -38,17 +38,17 @@ Here are some of the documents from Apple that informed the style guide. If some
 - (instancetype)init {}
 - (void)dealloc {}
 
-//If this object conforms to NSCopying
+// If this object conforms to NSCopying
 #pragma mark - NSCopying
 
 - (id)copyWithZone:(NSZone *)zone {}
 
-//If this is a NSObject subclass
+// If this overrides `NSObject`'s `description` method
 #pragma mark - NSObject
 
 - (NSString *)description {}
 
-//If this object is a UIViewController subclass
+// If this object is a UIViewController subclass
 #pragma mark - View Lifecycle
 
 - (void)viewDidLoad {}
@@ -60,6 +60,11 @@ Here are some of the documents from Apple that informed the style guide. If some
 - (void)setParentProperty:(id)value {}
 - (id)parentProperty {}
 
+// If this is a `UIView` subclass
+#pragma mark - Views
+
+- (UIView *)lazyLoadedView {}
+
 #pragma mark - Public
 
 - (void)publicMethod {}
@@ -69,9 +74,7 @@ Here are some of the documents from Apple that informed the style guide. If some
 - (void)privateMethod {}
 
 #pragma mark - Protocols conformance
-#pragma mark - UITextFieldDelegate
-#pragma mark - UITableViewDataSource
-#pragma mark - UITableViewDelegate
+#pragma mark - Pragma for each delegate
 ```
 
 ## Spacing
@@ -127,6 +130,23 @@ UIButton *settingsButton;
 ```objc
 UIButton *setBut;
 ```
+
+### Methods
+
+Methods should not contain conjunction words, but tersely describe the parameters.
+
+**For example:**
+
+```objc
+- (void)initWithUser:(User *)newUser firstname:(NSString *)firstname lastname:(NSString *)lastname;
+```
+
+**Not**
+
+```objc
+- (void)initWithUser:(User *)newUser forFirstname:(NSString *)firstname andLastname:(NSString *)lastname;
+```
+
 
 ### Variables
 
