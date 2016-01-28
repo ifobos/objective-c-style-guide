@@ -1,4 +1,4 @@
-# Kinetic Cafe Objective-C Style Guide
+# Objective-C Style Guide
 
 This is work-in-progress style guide for iOS teams in Kinetic Cafe Inc. 
 
