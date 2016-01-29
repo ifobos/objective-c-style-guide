@@ -118,6 +118,9 @@ else {
 
 * Align "=" signs within the same code block
 
+### Line Length
+
+* Since Objective-C is a verbose language, the recommended line length is 100 columns. A page guide for column can be set in Xcode preferences, at Text Editing.
 
 ## Naming
 
