@@ -663,9 +663,38 @@ static id _sharedManager = nil;
 
 When they are needed, comments should be used to explain **why** a particular piece of code does something. Any comments that are used must be kept up-to-date or deleted.
 
+Commenting your code is fantastic; However, try not to be overdone or redundant.
+
+**Example:**
+
+```objc
+
+  // display state selection for US users
+  Country *country = [Country current];
+  if ([country.code isEqualToString:@"US"]) {
+    [self showStatesForm];
+  }
+```
+
+**Not:**
+
+```objc
+
+  // get the current country
+  Country *country = [Country current];
+  
+  // if country code is US
+  if ([country.code isEqualToString:@"US"]) {
+  
+    // display the form input for state
+    [self showStatesForm];
+  }
+```
+
 Block comments should generally be avoided, as code should be as self-documenting as possible, with only the need for intermittent, few-line explanations. This does not apply to those comments used to generate documentation.
 
-### Documentation (.h)
+
+### Documentation
 
 Create documentation of the different classes in its .h files
 
