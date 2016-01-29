@@ -838,6 +838,18 @@ typedef enum {
 } Direction;
 ```
 
+## Class
+
+### Constructor Methods
+
+Where class constructor methods are used, these should always return type of 'instancetype' and never 'id'. This ensures the compiler correctly infers the result type. 
+
+```objc
+@interface Airplane
++ (instancetype)airplaneWithType:(RWTAirplaneType)type;
+@end
+```
+
 ## Xcode project
 
 The physical files should be kept in sync with the Xcode project files in order to avoid file sprawl. **Any Xcode groups created should be reflected by folders in the filesystem.** Code should be grouped not only by type, but also by feature for greater clarity.
