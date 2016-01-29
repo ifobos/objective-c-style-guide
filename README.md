@@ -657,40 +657,31 @@ CGFloat height = frame.size.height;
 
 ### Booleans
 
-Never compare something directly to `YES`, because `YES` is defined as `1`, and a `BOOL` in Objective-C is a `CHAR` type that is 8 bits long (so a value of `11111110` will return `NO` if compared to `YES`).
+Objective-C uses `YES` and `NO`.  Therefore `true` and `false` should only be used for CoreFoundation, C or C++ code.  Since `nil` resolves to `NO` it is unnecessary to compare it in conditions. Never compare something directly to `YES`, because `YES` is defined to 1 and a `BOOL` can be up to 8 bits.
 
-**For an object pointer:**
+This allows for more consistency across files and greater visual clarity.
 
-```objc
-if (!someObject) {
-}
-
-if (someObject == nil) {
-}
-```
-
-**For a `BOOL` value:**
+**Preferred:**
 
 ```objc
-if (isAwesome)
-if (!someNumber.boolValue)
-if (someNumber.boolValue == NO)
+if (someObject) {}
+if (![anotherObject boolValue]) {}
 ```
 
-**Not:**
+**Not Preferred:**
 
 ```objc
-if (isAwesome == YES) // Never do this.
+if (someObject == nil) {}
+if ([anotherObject boolValue] == NO) {}
+if (isAwesome == YES) {} // Never do this.
+if (isAwesome == true) {} // Never do this.
 ```
 
-If the name of a `BOOL` property is expressed as an adjective, the property’s name can omit the `is` prefix but should specify the conventional name for the getter.
-
-**For example:**
+If the name of a `BOOL` property is expressed as an adjective, the property can omit the “is” prefix but specifies the conventional name for the get accessor, for example:
 
 ```objc
 @property (assign, getter=isEditable) BOOL editable;
 ```
-
 
 ## Enumeration Types
 
