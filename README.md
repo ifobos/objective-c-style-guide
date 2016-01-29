@@ -343,6 +343,38 @@ Local variables should not contain underscores.
     NSString *headline;
 }
 ```
+### Lazy Instantiation
+
+Use the lazy instantiation (or initialization) pattern in Objective-C with class members. You move the initialization code of the instance variable into the accessor method of the property. This a clean place to park your initialization code and the instance variable is only instantiated when it is first used. This can be especially valuable if there are several lines of code to initialize the instance variable.
+
+**For example:**
+```objc
+#import "SampleClass.h"
+ 
+@interface SampleClass()
+ 
+@property (nonatomic) NSMutableArray *items;
+ 
+@end
+ 
+@implementation SampleClass
+ 
+- (NSMutableArray *)items{
+    if (!_items) {
+        _items = [[NSMutableArray alloc] init];
+        // add more lines of code for further initialization as needed
+    }
+ 
+    return _items;
+}
+ 
+- (void)addItem:(id)item{
+    // self.items will be instantiated the first time addItem: is called
+    [self.items addObject:item];
+}
+ 
+@end
+```
 
 ## Methods
 
