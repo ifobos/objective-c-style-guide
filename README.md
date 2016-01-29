@@ -694,6 +694,8 @@ Create documentation of the different classes in its .h files
               toNumber:(NSInteger)secondNumber;
 
 ```
+>Check out the [HeaderDoc Tags](https://developer.apple.com/library/mac/documentation/DeveloperTools/Conceptual/HeaderDoc/tags/tags.html#//apple_ref/doc/uid/TP40001215-CH346-CHDJFEGF)
+
 **Description of the property:**
 
 ```objc
