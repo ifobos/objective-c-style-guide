@@ -308,6 +308,12 @@ Methods and properties added in categories should be named with an app- or organ
 @end
 ```
 
+### Properties
+
+- Don't use `id` is prefer `uid`, do not use any reserved words as property names on an object.
+- Don't use `description` is prefer `about`, `description` is method of NSObject. All classes that inherit from NSObject inherit the method. It produces a textual description of the object for debugging purposes. 
+
+
 ## Properties
 
 Properties should be camel-case with the leading word being lowercase. Use auto-synthesis for properties rather than manual @synthesize statements unless you have good reason.
@@ -450,11 +456,6 @@ Use the lazy instantiation (or initialization) pattern in Objective-C with class
  
 @end
 ```
-### Property name
-
-- Don't use `id` is prefer `uid`, do not use any reserved words as property names on an object.
-- Don't use `description` is prefer `about`, `description` is method of NSObject. All classes that inherit from NSObject inherit the method. It produces a textual description of the object for debugging purposes. 
-
 
 ## Methods
 
