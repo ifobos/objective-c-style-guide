@@ -144,13 +144,17 @@ Methods should not contain conjunction words, but tersely describe the parameter
 **For example:**
 
 ```objc
-- (void)initWithUser:(User *)newUser firstname:(NSString *)firstname lastname:(NSString *)lastname;
+- (void)initWithUser:(User *)newUser 
+           firstname:(NSString *)firstname 
+            lastname:(NSString *)lastname;
 ```
 
 **Not**
 
 ```objc
-- (void)initWithUser:(User *)newUser forFirstname:(NSString *)firstname andLastname:(NSString *)lastname;
+- (void)initWithUser:(User *)newUser 
+        forFirstname:(NSString *)firstname 
+         andLastname:(NSString *)lastname;
 ```
 
 
@@ -321,14 +325,14 @@ Local variables should not contain underscores.
 **For example:**
 
 ```objc
-@interface KCPSection: NSObject
+@interface SampleClass: NSObject
 
 - (instancetype)initWithHeadline:(NSString *)headline;
 @property (nonatomic) NSString *headline;
 
 @end
 
-@implementation KCPSection
+@implementation SampleClass
 
 - (instancetype)initWithHeadline:(NSString *)headline {
 	self = [super init];
@@ -365,7 +369,7 @@ Use the lazy instantiation (or initialization) pattern in Objective-C with class
  
 @implementation SampleClass
  
-- (NSMutableArray *)items{
+- (NSMutableArray *)items {
     if (!_items) {
         _items = [[NSMutableArray alloc] init];
         // add more lines of code for further initialization as needed
@@ -374,7 +378,7 @@ Use the lazy instantiation (or initialization) pattern in Objective-C with class
     return _items;
 }
  
-- (void)addItem:(id)item{
+- (void)addItem:(id)item {
     // self.items will be instantiated the first time addItem: is called
     [self.items addObject:item];
 }
@@ -535,10 +539,10 @@ This helps disambiguate in cases when an object is the delegate for multiple sim
 **For example:**
 
 ```objc
-NSArray *names = @[@"Brian", @"Matt", @"Chris", @"Alex", @"Steve", @"Paul"];
+NSArray *names                = @[@"Brian", @"Matt", @"Chris", @"Alex", @"Steve", @"Paul"];
 NSDictionary *productManagers = @{@"iPhone" : @"Kate", @"iPad" : @"Kamal", @"Mobile Web" : @"Bill"};
-NSNumber *shouldUseLiterals = @YES;
-NSNumber *buildingZIPCode = @10018;
+NSNumber *shouldUseLiterals   = @YES;
+NSNumber *buildingZIPCode     = @10018;
 ```
 
 **Not:**
@@ -561,9 +565,9 @@ When accessing the `x`, `y`, `width`, or `height` of a `CGRect`, always use the 
 ```objc
 CGRect frame = self.view.frame;
 
-CGFloat x = CGRectGetMinX(frame);
-CGFloat y = CGRectGetMinY(frame);
-CGFloat width = CGRectGetWidth(frame);
+CGFloat x      = CGRectGetMinX(frame);
+CGFloat y      = CGRectGetMinY(frame);
+CGFloat width  = CGRectGetWidth(frame);
 CGFloat height = CGRectGetHeight(frame);
 ```
 
@@ -636,10 +640,10 @@ When working with bitmasks, use the `NS_OPTIONS` macro.
 
 ```objc
 typedef NS_OPTIONS(NSUInteger, KCPCategory) {
-   	KCPCategoryFootwears    = 1 << 0,
+    KCPCategoryFootwears    = 1 << 0,
     KCPCategoryHandbags     = 1 << 1,
     KCPCategoryAccessories  = 1 << 2,
-    KCPCategoryRandom		 = 1 << 3
+    KCPCategoryRandom       = 1 << 3
 };
 ```
 
