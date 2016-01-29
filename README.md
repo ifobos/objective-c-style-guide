@@ -699,12 +699,28 @@ When using `enum`s, use the new fixed underlying type specification, which provi
 **Example:**
 
 ```objc
-typedef NS_ENUM(NSInteger, KCPUserState) {
-    KCPUserStateNotSignedIn,
-    KCPUserStateSignedIn
+typedef NS_ENUM(NSInteger, ABCUserState) {
+    ABCUserStateNotSignedIn,
+    ABCUserStateSignedIn
+};
+
+//You can also make explicit value assignments (showing older k-style constant definition):
+
+typedef NS_ENUM(NSInteger, ABCGlobalConstants) {
+  ABCPinSizeMin = 1,
+  ABCPinSizeMax = 5,
+  ABCPinCountMin = 100,
+  ABCPinCountMax = 500,
 };
 ```
+**Not:**
 
+```objc
+enum GlobalConstants {
+  kMaxPinSize = 5,
+  kMaxPinCount = 500,
+};
+```
 ## Bitmasks
 
 When working with bitmasks, use the `NS_OPTIONS` macro.
