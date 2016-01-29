@@ -665,6 +665,57 @@ When they are needed, comments should be used to explain **why** a particular pi
 
 Block comments should generally be avoided, as code should be as self-documenting as possible, with only the need for intermittent, few-line explanations. This does not apply to those comments used to generate documentation.
 
+### Documentation (.h)
+
+Create documentation of the different classes in its .h files
+
+**A general review on the class:**
+
+```objc
+
+/**
+ SUBClass is a subclass of NSObject created to 
+ exemplify the use of comments for documentation.
+*/
+@interface SUBClass: NSObject
+```
+**Explanation for each method:**
+
+```objc
+/**
+ A really simple way to calculate the sum of two numbers.
+ 
+ @param firstNumber An NSInteger to be used in the summation of two numbers
+ @param secondNumber The second half of the equation.
+ 
+ @return The sum of the two numbers passed in.
+ */
++ (NSInteger)addNumber:(NSInteger)firstNumber 
+              toNumber:(NSInteger)secondNumber;
+
+```
+**Description of the property:**
+
+```objc
+
+/// uid contains the model identifier returned by the API
+@property (nonatomic) NSInteger uid;
+```
+
+**Others:**
+
+Other relevant elements such as enum, external const, etc.
+
+```objc
+
+/// Direction is an enum representing the different cardinal directions.
+typedef enum {
+  north,
+  south,
+  west,
+  east
+} Direction;
+```
 
 ## Xcode project
 
