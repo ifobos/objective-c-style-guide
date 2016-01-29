@@ -17,7 +17,7 @@ Here are some of the documents from Apple that informed the style guide. If some
 * [Spacing](#spacing)
 * [Naming](#naming)
 * [Properties](#properties)
-* [Methods](#methods)
+* [Methods](#methods-1)
 * [Protocols](#protocols)
 * [Variables](#variables)
 * [Enum Types](#enumeration-types)
