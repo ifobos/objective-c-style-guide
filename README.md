@@ -95,6 +95,17 @@ else {
     // Do something else
 }
 ```
+**Not:**
+
+```objc
+if (user.isHappy)
+{
+    //Do something
+}
+else {
+    //Do something else
+}
+```
 ### Line Break and Whitespace
 
 * There should be exactly one blank line between methods to aid in visual clarity and organization.
