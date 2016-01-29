@@ -402,10 +402,17 @@ The usage of the word "and" is reserved.  It should not be used for multiple par
 **Preferred:**
 
 ```objc
-- (void)setExampleText:(NSString *)text image:(UIImage *)image;
-- (void)sendAction:(SEL)aSelector to:(id)anObject forAllCells:(BOOL)flag;
+- (void)setExampleText:(NSString *)text 
+                 image:(UIImage *)image;
+                 
+- (void)sendAction:(SEL)aSelector 
+                to:(id)anObject 
+       forAllCells:(BOOL)flag;
+       
 - (id)viewWithTag:(NSInteger)tag;
-- (instancetype)initWithWidth:(CGFloat)width height:(CGFloat)height;
+
+- (instancetype)initWithWidth:(CGFloat)width 
+                       height:(CGFloat)height;
 ```
 
 **Not Preferred:**
