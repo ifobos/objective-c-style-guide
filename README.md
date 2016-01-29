@@ -103,7 +103,13 @@ else {
 **For example**
 
 ```objc
-- (void)initWithUser:(User *)newUser firstname:(NSString *)firstname lastname:(NSString *)lastname;
+
+- (void)initWithUser:(User *)newUser 
+           firstname:(NSString *)firstname 
+            lastname:(NSString *)lastname {
+            
+            // body...
+}
 ```
 
 * `@synthesize` and `@dynamic` should each be declared on new lines in the implementation.
