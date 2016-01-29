@@ -1,7 +1,5 @@
 # Objective-C Style Guide
 
-This is work-in-progress style guide for iOS teams in Kinetic Cafe Inc. 
-
 ## Introduction
 
 Here are some of the documents from Apple that informed the style guide. If something isn’t mentioned here, it’s probably covered in great detail in one of these:
