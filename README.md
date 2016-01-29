@@ -728,23 +728,18 @@ typedef NS_OPTIONS(NSUInteger, KCPCategory) {
 
 ## Singletons
 
-* Singleton objects should use a thread-safe pattern for creating their shared instance.
-* The naming of the singleton variable should be clear instead of using a generic "sharedInstance" for all cases. For example, sharedManager, standardApplication. 
-
+Singleton objects should use a thread-safe pattern for creating their shared instance.
 ```objc
++ (instancetype)sharedInstance {
 
-static id _sharedManager = nil;
+  static id sharedInstance = nil;
 
-//Some code
+  static dispatch_once_t onceToken;
+  dispatch_once(&onceToken, ^{
+    sharedInstance = [[self alloc] init];
+  });
 
-+ (instancetype)sharedManager {
-
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        _sharedManager = [[[self class] alloc] init];
-    });
-
-    return _sharedManager;
+  return sharedInstance;
 }
 ```
 
