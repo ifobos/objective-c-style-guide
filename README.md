@@ -707,8 +707,8 @@ typedef NS_ENUM(NSInteger, ABCUserState) {
 //You can also make explicit value assignments (showing older k-style constant definition):
 
 typedef NS_ENUM(NSInteger, ABCGlobalConstants) {
-  ABCPinSizeMin = 1,
-  ABCPinSizeMax = 5,
+  ABCPinSizeMin  = 1,
+  ABCPinSizeMax  = 5,
   ABCPinCountMin = 100,
   ABCPinCountMax = 500,
 };
