@@ -85,7 +85,7 @@ Here are some of the documents from Apple that informed the style guide. If some
 * Method braces and other braces (`if`/`else`/`switch`/`while` etc.) always open on the same line as the statement but close on a new line.
 * One whitespace before the parenthesis, no space inside parenthesis
 
-**For example:**
+**Example:**
 
 ```objc
 if (user.isHappy) {
@@ -111,7 +111,7 @@ else {
 * There should be exactly one blank line between methods to aid in visual clarity and organization.
 * Whitespace within methods should be used to separate functionality (though often this can indicate an opportunity to split the method into several, smaller methods). In methods with long or verbose names, a single line of whitespace may be used to provide visual separation before the method’s body.
 
-**For example**
+**Example**
 
 ```objc
 
@@ -139,7 +139,7 @@ Apple naming conventions should be adhered to wherever possible, especially thos
 
 Long, descriptive method and variable names are good.
 
-**For example:**
+**Example:**
 
 ```objc
 UIButton *settingsButton;
@@ -155,7 +155,7 @@ UIButton *setBut;
 
 Methods should not contain conjunction words, but tersely describe the parameters.
 
-**For example:**
+**Example:**
 
 ```objc
 - (void)initWithUser:(User *)newUser 
@@ -176,7 +176,7 @@ Methods should not contain conjunction words, but tersely describe the parameter
 
 Variables should be named descriptively, with the variable’s name clearly communicating what the variable _is_ and pertinent information a programmer needs to use that value properly.
 
-**For example:**
+**Example:**
 
 * `NSString *title`: It is reasonable to assume a “title” is a string.
 * `NSString *titleHTML`: This indicates a title that may contain HTML which needs parsing for display. _“HTML” is needed for a programmer to use this variable effectively._
@@ -192,7 +192,7 @@ Asterisks indicating a type is a pointer should be “attached to” the variabl
 
 Private properties should be used in place of instance variables whenever possible. Although using instance variables is a valid way of doing things, by agreeing to prefer properties our code will be more consistent.
 
-**For example:**
+**Example:**
 
 ```objc
 @interface Tutorial : NSObject
@@ -213,7 +213,7 @@ Private properties should be used in place of instance variables whenever possib
 
 Constants are preferred over in-line string literals or numbers, as they allow for easy reproduction of commonly used variables and can be quickly changed without the need for find and replace. Constants should be declared as `static` constants and not `#define`s unless explicitly being used as a macro.
 
-**For example:**
+**Example:**
 
 ```objc
 static NSString * const KCPAboutViewControllerCompanyName = @"Kinetic Cafe Inc.";
@@ -234,7 +234,7 @@ static const CGFloat KCPImageThumbnailHeight = 50.0;
 * A three letter prefix (e.g., `KCP`) should always be used for class names and constants. Constants should be camel-case with all words capitalized and prefixed by the related class name for clarity. A two letter prefix (e.g., `NS`) is [reserved for use by Apple](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/DefiningClasses/DefiningClasses.html#//apple_ref/doc/uid/TP40011210-CH3-SW12).
 * Constant name should follow the format of `<filename>constantName`
 
-**For example:**
+**Example:**
 
 ```objc
 static const NSTimeInterval KCPNavigationViewControllerNavigationFadeAnimationDuration = 0.3;
@@ -249,7 +249,7 @@ static const NSTimeInterval fadetime = 1.7;
 * Properties and local variables should be camel-case with the leading word being lowercase.
 * Instance variables should be camel-case with the leading word being lowercase, and should be prefixed with an underscore. This is consistent with instance variables synthesized automatically by LLVM. **If LLVM can synthesize the variable automatically, then let it.**
 
-**For example:**
+**Example:**
 
 ```objc
 @synthesize descriptiveVariableName = _descriptiveVariableName;
@@ -276,7 +276,7 @@ typedef NS_ENUM(NSInteger, KCPStoryType) {
 
 Categories may be used to concisely segment functionality and should be named to describe that functionality.
 
-**For example:**
+**Example:**
 
 ```objc
 @interface UIViewController (KCPAutoHideNavBar)
@@ -292,7 +292,7 @@ Categories may be used to concisely segment functionality and should be named to
 
 Methods and properties added in categories should be named with an app- or organization-specific prefix. This avoids unintentionally overriding an existing method, and it reduces the chance of two categories from different libraries adding a method of the same name. (The Objective-C runtime doesn’t specify which method will be called in the latter case, which can lead to unintended effects.)
 
-**For example:**
+**Example:**
 
 ```objc
 @interface NSArray (KCPAccessors)
@@ -322,7 +322,7 @@ Properties should be camel-case with the leading word being lowercase. Use auto-
 
 Private properties should be declared in class extensions (anonymous categories) in the implementation file of a class.
 
-**For example:**
+**Example:**
 
 ```objc
 @interface KCPRepository ()
@@ -338,14 +338,14 @@ Private properties should be declared in class extensions (anonymous categories)
 
 Property attributes should be explicitly listed, and will help new programmers when reading the code.  The order of properties should be storage then atomicity, which is consistent with automatically generated code when connecting UI elements from Interface Builder.
 
-**Preferred:**
+**Example:**
 
 ```objc
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 @property (strong, nonatomic) NSString *tutorialName;
 ```
 
-**Not Preferred:**
+**Not:**
 
 ```objc
 @property (nonatomic, weak) IBOutlet UIView *containerView;
@@ -355,13 +355,13 @@ Property attributes should be explicitly listed, and will help new programmers w
 Properties with mutable counterparts (e.g. NSString) should prefer `copy` instead of `strong`. 
 Why? Even if you declared a property as `NSString` somebody might pass in an instance of an `NSMutableString` and then change it without you noticing that.  
 
-**Preferred:**
+**Example:**
 
 ```objc
 @property (copy, nonatomic) NSString *tutorialName;
 ```
 
-**Not Preferred:**
+**Not:**
 
 ```objc
 @property (strong, nonatomic) NSString *tutorialName;
@@ -371,7 +371,7 @@ Why? Even if you declared a property as `NSString` somebody might pass in an ins
 
 Dot notation should **always** be used for accessing and mutating properties. Bracket notation is preferred in all other instances.
 
-**For example:**
+**Example:**
 
 ```objc
 view.backgroundColor = [UIColor orangeColor];
@@ -393,7 +393,7 @@ An exception to this: inside initializers, the backing instance variable (i.e. `
 
 Local variables should not contain underscores.
 
-**For example:**
+**Example:**
 
 ```objc
 @interface SampleClass: NSObject
@@ -428,7 +428,7 @@ Local variables should not contain underscores.
 
 Use the lazy instantiation (or initialization) pattern in Objective-C with class members. You move the initialization code of the instance variable into the accessor method of the property. This a clean place to park your initialization code and the instance variable is only instantiated when it is first used. This can be especially valuable if there are several lines of code to initialize the instance variable.
 
-**For example:**
+**Example:**
 ```objc
 #import "SampleClass.h"
  
@@ -465,7 +465,7 @@ In method signatures, there should be a space after the method type (-/+ symbol)
 
 The usage of the word "and" is reserved.  It should not be used for multiple parameters as illustrated in the `initWithWidth:height:` example below.
 
-**Preferred:**
+**Example:**
 
 ```objc
 - (void)setExampleText:(NSString *)text 
@@ -481,7 +481,7 @@ The usage of the word "and" is reserved.  It should not be used for multiple par
                        height:(CGFloat)height;
 ```
 
-**Not Preferred:**
+**Not:**
 
 ```objc
 -(void)setT:(NSString *)text i:(UIImage *)image;
@@ -495,7 +495,7 @@ The usage of the word "and" is reserved.  It should not be used for multiple par
 
 The ternary operator, `?` , should only be used when it increases clarity or code neatness. A single condition is usually all that should be evaluated. Evaluating multiple conditions is usually more understandable as an if statement, or refactored into named variables.
 
-**For example:**
+**Example:**
 
 ```objc
 result = a > b ? x : y;
@@ -511,7 +511,7 @@ result = a > b ? x = c > d ? c : d : y;
 
 When coding with conditionals, the left hand margin of the code should be the "golden" or "happy" path.  That is, don't nest `if` statements.  Multiple return statements are OK.
 
-**Preferred:**
+**Example:**
 
 ```objc
 - (void)someMethod {
@@ -523,7 +523,7 @@ When coding with conditionals, the left hand margin of the code should be the "g
 }
 ```
 
-**Not Preferred:**
+**Not:**
 
 ```objc
 - (void)someMethod {
@@ -537,7 +537,7 @@ When coding with conditionals, the left hand margin of the code should be the "g
 
 Conditional bodies should always use braces even when a conditional body could be written without braces (e.g., it is one line only) to prevent [errors](https://github.com/NYTimes/objective-c-style-guide/issues/26#issuecomment-22074256). These errors include adding a second line and expecting it to be part of the if-statement. Another, [even more dangerous defect](http://programmers.stackexchange.com/a/16530) may happen where the line “inside” the if-statement is commented out, and the next line unwittingly becomes part of the if-statement. In addition, this style is more consistent with all other conditionals, and therefore more easily scannable.
 
-**For example:**
+**Example:**
 
 ```objc
 if (!error) {
@@ -562,7 +562,7 @@ if (!error) return success;
 
 When methods return an error parameter by reference, switch on the returned value, not the error variable.
 
-**For example:**
+**Example:**
 
 ```objc
 NSError *error;
@@ -590,7 +590,7 @@ In a [delegate or data source protocol](https://developer.apple.com/library/ios/
 
 This helps disambiguate in cases when an object is the delegate for multiple similarly-typed objects, and it helps clarify intent to readers of a class implementing these delegate methods.
 
-**For example:**
+**Example:**
 
 ```objc
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
@@ -609,7 +609,7 @@ This helps disambiguate in cases when an object is the delegate for multiple sim
 
 `NSString`, `NSDictionary`, `NSArray`, and `NSNumber` literals should be used whenever creating immutable instances of those objects. Pay special care that `nil` values not be passed into `NSArray` and `NSDictionary` literals, as this will cause a crash.
 
-**For example:**
+**Example:**
 
 ```objc
 NSArray *names                = @[@"Brian", @"Matt", @"Chris", @"Alex", @"Steve", @"Paul"];
@@ -633,7 +633,7 @@ When accessing the `x`, `y`, `width`, or `height` of a `CGRect`, always use the 
 
 > All functions described in this reference that take CGRect data structures as inputs implicitly standardize those rectangles before calculating their results. For this reason, your applications should avoid directly reading and writing the data stored in the CGRect data structure. Instead, use the functions described here to manipulate rectangles and to retrieve their characteristics.
 
-**For example:**
+**Example:**
 
 ```objc
 CGRect frame = self.view.frame;
@@ -661,14 +661,14 @@ Objective-C uses `YES` and `NO`.  Therefore `true` and `false` should only be us
 
 This allows for more consistency across files and greater visual clarity.
 
-**Preferred:**
+**Example:**
 
 ```objc
 if (someObject) {}
 if (![anotherObject boolValue]) {}
 ```
 
-**Not Preferred:**
+**Not:**
 
 ```objc
 if (someObject == nil) {}
