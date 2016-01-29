@@ -190,6 +190,25 @@ Single letter variable names should be avoided except as simple counter variable
 
 Asterisks indicating a type is a pointer should be “attached to” the variable name. **For example,** `NSString *text` **not** `NSString* text` or `NSString * text`, except in the case of constants (`NSString * const NYTConstantString`).
 
+Private properties should be used in place of instance variables whenever possible. Although using instance variables is a valid way of doing things, by agreeing to prefer properties our code will be more consistent.
+
+**For example:**
+
+```objc
+@interface Tutorial : NSObject
+
+@property (strong, nonatomic) NSString *tutorialName;
+
+@end
+```
+**Not:**
+
+```objc
+@interface RWTTutorial : NSObject {
+  NSString *tutorialName;
+}
+```
+
 ### Constants
 
 Constants are preferred over in-line string literals or numbers, as they allow for easy reproduction of commonly used variables and can be quickly changed without the need for find and replace. Constants should be declared as `static` constants and not `#define`s unless explicitly being used as a macro.
@@ -289,7 +308,6 @@ Methods and properties added in categories should be named with an app- or organ
 @end
 ```
 
-
 ## Properties
 
 Properties should be camel-case with the leading word being lowercase. Use auto-synthesis for properties rather than manual @synthesize statements unless you have good reason.
@@ -308,6 +326,39 @@ Private properties should be declared in class extensions (anonymous categories)
 @property (nonatomic, strong) UIWebView *webView;
 
 @end
+```
+
+### Property Attributes
+
+Property attributes should be explicitly listed, and will help new programmers when reading the code.  The order of properties should be storage then atomicity, which is consistent with automatically generated code when connecting UI elements from Interface Builder.
+
+**Preferred:**
+
+```objc
+@property (weak, nonatomic) IBOutlet UIView *containerView;
+@property (strong, nonatomic) NSString *tutorialName;
+```
+
+**Not Preferred:**
+
+```objc
+@property (nonatomic, weak) IBOutlet UIView *containerView;
+@property (nonatomic) NSString *tutorialName;
+```
+
+Properties with mutable counterparts (e.g. NSString) should prefer `copy` instead of `strong`. 
+Why? Even if you declared a property as `NSString` somebody might pass in an instance of an `NSMutableString` and then change it without you noticing that.  
+
+**Preferred:**
+
+```objc
+@property (copy, nonatomic) NSString *tutorialName;
+```
+
+**Not Preferred:**
+
+```objc
+@property (strong, nonatomic) NSString *tutorialName;
 ```
 
 ### Dot Notation Syntax
