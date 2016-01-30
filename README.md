@@ -194,7 +194,7 @@ Private properties should be used in place of instance variables whenever possib
 **Example:**
 
 ```objc
-@interface Tutorial : NSObject
+@interface ABCTutorial : NSObject
 
 @property (strong, nonatomic) NSString *tutorialName;
 
@@ -203,7 +203,7 @@ Private properties should be used in place of instance variables whenever possib
 **Not:**
 
 ```objc
-@interface RWTTutorial : NSObject {
+@interface ABCTutorial : NSObject {
   NSString *tutorialName;
 }
 ```
@@ -215,9 +215,9 @@ Constants are preferred over in-line string literals or numbers, as they allow f
 **Example:**
 
 ```objc
-static NSString * const KCPAboutViewControllerCompanyName = @"Kinetic Cafe Inc.";
+static NSString * const ABCAboutViewControllerCompanyName = @"Kinetic Cafe Inc.";
 
-static const CGFloat KCPImageThumbnailHeight = 50.0;
+static const CGFloat ABCImageThumbnailHeight = 50.0;
 ```
 
 **Not:**
@@ -230,13 +230,13 @@ static const CGFloat KCPImageThumbnailHeight = 50.0;
 
 ### Prefix
 
-* A three letter prefix (e.g., `KCP`) should always be used for class names and constants. Constants should be camel-case with all words capitalized and prefixed by the related class name for clarity. A two letter prefix (e.g., `NS`) is [reserved for use by Apple](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/DefiningClasses/DefiningClasses.html#//apple_ref/doc/uid/TP40011210-CH3-SW12).
+* A three letter prefix (e.g., `ABC`) should always be used for class names and constants. Constants should be camel-case with all words capitalized and prefixed by the related class name for clarity. A two letter prefix (e.g., `NS`) is [reserved for use by Apple](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/DefiningClasses/DefiningClasses.html#//apple_ref/doc/uid/TP40011210-CH3-SW12).
 * Constant name should follow the format of `<filename>constantName`
 
 **Example:**
 
 ```objc
-static const NSTimeInterval KCPNavigationViewControllerNavigationFadeAnimationDuration = 0.3;
+static const NSTimeInterval ABCNavigationViewControllerNavigationFadeAnimationDuration = 0.3;
 ```
 
 **Not:**
@@ -265,9 +265,9 @@ id varnm;
 **Example:**
 
 ```objc
-typedef NS_ENUM(NSInteger, KCPStoryType) {
-    KCPStoryTypeOld,
-    KCPStoryTypeNew
+typedef NS_ENUM(NSInteger, ABCStoryType) {
+    ABCStoryTypeOld,
+    ABCStoryTypeNew
 };
 ```
 
@@ -278,15 +278,15 @@ Categories may be used to concisely segment functionality and should be named to
 **Example:**
 
 ```objc
-@interface UIViewController (KCPAutoHideNavBar)
+@interface UIViewController (ABCAutoHideNavBar)
 @interface NSString (NSStringEncodingDetection)
 ```
 
 **Not:**
 
 ```objc
-@interface KCPModel (private)
-@interface NSString (KCPRelative)
+@interface ABCModel (private)
+@interface NSString (ABCRelative)
 ```
 
 Methods and properties added in categories should be named with an app- or organization-specific prefix. This avoids unintentionally overriding an existing method, and it reduces the chance of two categories from different libraries adding a method of the same name. (The Objective-C runtime doesn’t specify which method will be called in the latter case, which can lead to unintended effects.)
@@ -294,15 +294,15 @@ Methods and properties added in categories should be named with an app- or organ
 **Example:**
 
 ```objc
-@interface NSArray (KCPAccessors)
-- (id)kcp_objectOrNilAtIndex:(NSUInteger)index;
+@interface NSArray (ABCAccessors)
+- (id)abc_objectOrNilAtIndex:(NSUInteger)index;
 @end
 ```
 
 **Not:**
 
 ```objc
-@interface NSArray (KCPAccessors)
+@interface NSArray (ABCAccessors)
 - (id)objectOrNilAtIndex:(NSUInteger)index;
 @end
 ```
@@ -324,7 +324,7 @@ Private properties should be declared in class extensions (anonymous categories)
 **Example:**
 
 ```objc
-@interface KCPRepository ()
+@interface ABCRepository ()
 
 @property (nonatomic, strong) UIView *topView;
 @property (nonatomic, strong) UIView *bannerView;
@@ -419,7 +419,7 @@ Local variables should not contain underscores.
 **Not:**
 
 ```objc
-@interface KCPSection : NSObject {
+@interface ABCSection : NSObject {
     NSString *headline;
 }
 ```
@@ -718,11 +718,11 @@ When working with bitmasks, use the `NS_OPTIONS` macro.
 **Example:**
 
 ```objc
-typedef NS_OPTIONS(NSUInteger, KCPCategory) {
-    KCPCategoryFootwears    = 1 << 0,
-    KCPCategoryHandbags     = 1 << 1,
-    KCPCategoryAccessories  = 1 << 2,
-    KCPCategoryRandom       = 1 << 3
+typedef NS_OPTIONS(NSUInteger, ABCCategory) {
+    ABCCategoryFootwears    = 1 << 0,
+    ABCCategoryHandbags     = 1 << 1,
+    ABCCategoryAccessories  = 1 << 2,
+    ABCCategoryRandom       = 1 << 3
 };
 ```
 
@@ -787,10 +787,10 @@ Create documentation of the different classes in its .h files
 ```objc
 
 /**
- SUBClass is a subclass of NSObject created to 
+ ABCClass is a subclass of NSObject created to 
  exemplify the use of comments for documentation.
 */
-@interface SUBClass: NSObject
+@interface ABCClass: NSObject
 ```
 **Explanation for each method:**
 
@@ -839,7 +839,7 @@ typedef enum {
 Where class constructor methods are used, these should always return type of 'instancetype' and never 'id'. This ensures the compiler correctly infers the result type. 
 
 ```objc
-@interface Airplane
+@interface ABCAirplane
 + (instancetype)airplaneWithType:(RWTAirplaneType)type;
 @end
 ```
