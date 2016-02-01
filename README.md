@@ -948,7 +948,7 @@ Where class constructor methods are used, these should always return type of 'in
 
 ```objc
 @interface ABCAirplane
-+ (instancetype)airplaneWithType:(RWTAirplaneType)type;
++ (instancetype)airplaneWithType:(ABCAirplaneType)type;
 @end
 ```
 
