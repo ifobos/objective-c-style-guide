@@ -24,6 +24,8 @@ Here are some of the documents from Apple that informed the style guide. If some
 * [Comments](#comments)
 * [Blocks](#blocks)
 * [Class](#class)
+* [Constants](#constants-1)
+* [Basic Code Principles](#basic-code-principles)
 * [Xcode Project](#xcode-project)
 
 ## Code Organization
