@@ -952,6 +952,71 @@ Where class constructor methods are used, these should always return type of 'in
 @end
 ```
 
+## Proper Code Nutrition
+
+Avoid magic numbers with no meaning, preferring instead a named variable or constant (see following examples).
+
+### Integers
+
+**Example:**
+
+```objc
+if ([pin length] > ABCPinSizeMax)
+```
+
+**Not:**
+
+```objc
+if ([pin length] < 5)
+```
+What is this checking for?
+We can see that this is checking if the pin is longer than the max allowed.
+
+### Floats
+
+In a (top level) .h you can define the float:
+
+```objc
+extern const float ABCFooFloat;
+```
+
+and then in the relevant .m file assign it a value:
+
+```objc
+const float ABCFooFloat = 18.0;
+```
+
+### Strings
+
+In a (top level) .h you can define the string:
+
+```objc
+extern NSString * const ABCLocationsDatabaseName;
+```
+
+and then in the relevant .m file assign it a value:
+
+```objc
+NSString * const ABCLocationsDatabaseName = @"locations.db";
+```
+
+Note: the above is a constant pointer to an `NSString` object while the following is a pointer to a constant `NSString` object.
+
+**Not:**
+
+```objc
+const NSString * ABCConstantString = @""; // pointer to constant
+// which is equivalent to
+NSString const * ABCConstantString = @"";
+```
+
+## Basic Code Principles
+
+* Each function/method should aim to perform one action/task that reflects it's name.
+* Since each function/method performs one action/task each one should be relatively short. If the code does not fit on one screen for example, you know you have a problem!
+* Declare local variables as close to the code they are used in as possible.
+* Always aim to reduce code nesting (ie a statement that is nested in an if, an if, a for and an if is hard for the brain to evaluate.  Refactor!).
+
 ## Xcode project
 
 The physical files should be kept in sync with the Xcode project files in order to avoid file sprawl. **Any Xcode groups created should be reflected by folders in the filesystem.** Code should be grouped not only by type, but also by feature for greater clarity.
@@ -964,5 +1029,6 @@ If ours doesn’t fit your tastes, have a look at some other style guides:
 
 * [NY Time](https://github.com/NYTimes/objective-c-style-guide)
 * [RayWenderlich](https://github.com/raywenderlich/objective-c-style-guide)
+* [RobotsAndPencils](https://github.com/RobotsAndPencils/objective-c-style-guide)
 * [GitHub](https://github.com/github/objective-c-style-guide)
 * [Robot & Pencil](https://github.com/RobotsAndPencils/objective-c-style-guide)
