@@ -123,14 +123,103 @@ else {
 ```
 
 * `@synthesize` and `@dynamic` should each be declared on new lines in the implementation.
+* Separate imports from the rest of your file by 1 space. Optionally group imports if there are many (but try to have less dependencies). Generally strive to include frameworks first.
+
+**Example**
+
+``` obj-c
+#import <AwesomeFramework/AwesomeFramework.h>
+#import <AnotherFramework/AnotherFramework.h>
+
+#import "SomeDependency.h"
+#import "SomeOtherDependency.h"
+
+@interface MyClass
+```
+* Use one empty line between class extension and implementation in .m file.
+
+**Example**
+
+``` obj-c
+@interface ABCMyClass ()
+
+// Properties - empty line above and below
+
+@end
+
+@implementation ABCMyClass
+
+// Body - empty line above and below
+
+@end
+
+```
+* Always end a file with a newline.
+
+**Example**
+
+![](http://i.imgur.com/JBNo0SD.png)
+
+* When using pragma marks leave 1 newline before and after.
+
+**Example**
+
+``` obj-c
+- (CGSize)intrinsicContentSize {
+    return CGSizeMake(12, 12);
+}
+
+#pragma mark - Private
+
+- (void)setup {
+    [self addGestureRecognizer:[[NSClickGestureRecognizer alloc] initWithTarget:self action:@selector(clicked:)]];
+}
+```
+
+* When doing math use a single space between operators. Unless that operator is unary in which case don't use a space.
+
+**Example**
+
+```obj-c
+NSInteger index = rand() % 50 + 25;
+index++;
+index += 1;
+index--;
+```
+
+* When doing logic, a single space should follow the `if` and a single space should preceed the `{`
+
+``` obj-c
+if (alpha + beta <= 0) && (kappa + phi > 0) {
+}
+```
+* Whitespace should in *all* cases be used to aid readability. Readability is highly subjective, so here are some rough guides:
+  * Use new lines to delimit chunks of related code (approx 4-5 lines). If more than 4-5 lines are grouped, consider refactoring those lines into another method. 
+    * By grouping related lines of code it naturally starts to show where the method can be refactored into smaller reusable units
+  * One blank line is generally sufficient.
+  * Avoid extraneous new lines between nested sets of parenthesis.
+  * Avoid blank lines at the end of methods. (Consider delimiting the final return value with one though.)
+
+**Example**
+
+```objc
+- (void)awakeFromNib {
+
+    UIStoryboard *signatureStoryboard                   = [UIStoryboard storyboardWithName:@"ABCPopoverSignature" bundle:nil];
+    self.signatureViewController                        = [signatureStoryboard instantiateViewControllerWithIdentifier:@"ABCPopoverSignature"];
+    self.signatureViewController.modalPresentationStyle = UIModalPresentationPopover;
+    self.signatureViewController.preferredContentSize   = CGSizeMake(BBPopoverSignatureWidth, BBPopoverSignatureHeight);
+    self.signatureViewController.signatureImageView     = self;
+    
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(initiateSignatureCapture)];
+    [self addGestureRecognizer:tapRecognizer];
+}
+```
+
 
 ### Alignment
 
 * Align "=" signs within the same code block
-
-### Line Length
-
-* Since Objective-C is a verbose language, the recommended line length is 100 columns. A page guide for column can be set in Xcode preferences, at Text Editing.
 
 ## Naming
 
