@@ -22,6 +22,7 @@ Here are some of the documents from Apple that informed the style guide. If some
 * [Bitmasks](#bitmasks)
 * [Singletons](#singletons)
 * [Comments](#comments)
+* [Blocks](#blocks)
 * [Class](#class)
 * [Xcode Project](#xcode-project)
 
