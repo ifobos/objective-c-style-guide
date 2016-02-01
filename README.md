@@ -206,7 +206,7 @@ if (alpha + beta <= 0) && (kappa + phi > 0) {
     UIStoryboard *signatureStoryboard                   = [UIStoryboard storyboardWithName:@"ABCPopoverSignature" bundle:nil];
     self.signatureViewController                        = [signatureStoryboard instantiateViewControllerWithIdentifier:@"ABCPopoverSignature"];
     self.signatureViewController.modalPresentationStyle = UIModalPresentationPopover;
-    self.signatureViewController.preferredContentSize   = CGSizeMake(BBPopoverSignatureWidth, BBPopoverSignatureHeight);
+    self.signatureViewController.preferredContentSize   = CGSizeMake(ABCPopoverSignatureWidth, ABCPopoverSignatureHeight);
     self.signatureViewController.signatureImageView     = self;
     
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(initiateSignatureCapture)];
