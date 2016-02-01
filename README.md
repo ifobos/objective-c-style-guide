@@ -114,9 +114,7 @@ else {
 
 ```objc
 
-- (void)initWithUser:(User *)newUser 
-           firstname:(NSString *)firstname 
-            lastname:(NSString *)lastname {
+- (void)initWithUser:(User *)newUser firstname:(NSString *)firstname lastname:(NSString *)lastname {
             
             // body...
 }
@@ -216,7 +214,6 @@ if (alpha + beta <= 0) && (kappa + phi > 0) {
 }
 ```
 
-
 ### Alignment
 
 * Align "=" signs within the same code block
@@ -246,17 +243,13 @@ Methods should not contain conjunction words, but tersely describe the parameter
 **Example:**
 
 ```objc
-- (void)initWithUser:(User *)newUser 
-           firstname:(NSString *)firstname 
-            lastname:(NSString *)lastname;
+- (void)initWithUser:(User *)newUser firstname:(NSString *)firstname lastname:(NSString *)lastname;
 ```
 
 **Not**
 
 ```objc
-- (void)initWithUser:(User *)newUser 
-        forFirstname:(NSString *)firstname 
-         andLastname:(NSString *)lastname;
+- (void)initWithUser:(User *)newUser forFirstname:(NSString *)firstname andLastname:(NSString *)lastname;
 ```
 
 
@@ -556,17 +549,10 @@ The usage of the word "and" is reserved.  It should not be used for multiple par
 **Example:**
 
 ```objc
-- (void)setExampleText:(NSString *)text 
-                 image:(UIImage *)image;
-                 
-- (void)sendAction:(SEL)aSelector 
-                to:(id)anObject 
-       forAllCells:(BOOL)flag;
-       
+- (void)setExampleText:(NSString *)text image:(UIImage *)image;
+- (void)sendAction:(SEL)aSelector to:(id)anObject forAllCells:(BOOL)flag;
 - (id)viewWithTag:(NSInteger)tag;
-
-- (instancetype)initWithWidth:(CGFloat)width 
-                       height:(CGFloat)height;
+- (instancetype)initWithWidth:(CGFloat)width height:(CGFloat)height;
 ```
 
 **Not:**
