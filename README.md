@@ -129,12 +129,11 @@ else {
 **Example**
 
 ``` obj-c
+#import <AwesomeFramework/AwesomeFramework.h>
+#import <AnotherFramework/AnotherFramework.h>
 
 #import "SomeDependency.h"
 #import "SomeOtherDependency.h"
-
-#import <AwesomeFramework/AwesomeFramework.h>
-#import <AnotherFramework/AnotherFramework.h>
 
 @interface ABCMyClass
 ```
