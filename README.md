@@ -922,6 +922,23 @@ typedef enum {
 } Direction;
 ```
 
+## Blocks
+
+* Blocks should have a space between their return type and name.
+* Block definitions should omit their return type when possible.
+* Block definitions should omit their arguments if they are void.
+* Parameters in block types should be named unless the block is initialized immediately.
+
+```objc
+void (^blockName1)(void) = ^{
+    // do some things
+};
+
+id (^blockName2)(id) = ^ id (id args) {
+    // do some things
+};
+```
+
 ## Class
 
 ### Constructor Methods
