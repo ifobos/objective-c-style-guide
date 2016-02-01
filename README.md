@@ -449,6 +449,20 @@ Why? Even if you declared a property as `NSString` somebody might pass in an ins
 @property (strong, nonatomic) NSString *tutorialName;
 ```
 
+* Always declare memory-management semantics even on `readonly` properties.  List the management semantics first for consistency (and to match XCode default).
+
+**Example:**
+
+```objc
+@property (assign, nonatomic) NSInteger statusCode;
+```
+    
+**Not:**
+
+```objc
+@property (nonatomic) NSInteger statusCode;
+```
+
 ### Dot Notation Syntax
 
 Dot notation should **always** be used for accessing and mutating properties. Bracket notation is preferred in all other instances.
