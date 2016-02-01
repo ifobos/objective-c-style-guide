@@ -126,13 +126,14 @@ else {
 **Example**
 
 ``` obj-c
-#import <AwesomeFramework/AwesomeFramework.h>
-#import <AnotherFramework/AnotherFramework.h>
 
 #import "SomeDependency.h"
 #import "SomeOtherDependency.h"
 
-@interface MyClass
+#import <AwesomeFramework/AwesomeFramework.h>
+#import <AnotherFramework/AnotherFramework.h>
+
+@interface ABCMyClass
 ```
 * Use one empty line between class extension and implementation in .m file.
 
