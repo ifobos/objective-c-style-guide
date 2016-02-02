@@ -26,6 +26,7 @@ Here are some of the documents from Apple that informed the style guide. If some
 * [Class](#class)
 * [Constants](#constants-1)
 * [Basic Code Principles](#basic-code-principles)
+* [CocoaPods](#cocoapods)
 * [Xcode Project](#xcode-project)
 
 ## Code Organization
