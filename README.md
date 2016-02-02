@@ -1018,6 +1018,9 @@ NSString const * ABCConstantString = @"";
 * Since each function/method performs one action/task each one should be relatively short. If the code does not fit on one screen for example, you know you have a problem!
 * Declare local variables as close to the code they are used in as possible.
 * Always aim to reduce code nesting (ie a statement that is nested in an if, an if, a for and an if is hard for the brain to evaluate.  Refactor!).
+* DRY stands for Don't Repeat Yourself. Also known as DIE: Duplication is Evil. Every piece of knowledge must have a single, unambiguous, authoritative representation within a system.
+
+
 
 ## Xcode project
 
