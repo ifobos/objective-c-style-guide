@@ -1025,6 +1025,11 @@ To sort the folders of an existing project, the use of [synx](https://github.com
 
 When possible, always turn on “Treat Warnings as Errors” in the target’s Build Settings and enable as many [additional warnings](http://boredzo.org/blog/archives/2009-11-07/warnings) as possible. If you need to ignore a specific warning, use [Clang’s pragma feature](http://clang.llvm.org/docs/UsersManual.html#controlling-diagnostics-via-pragmas).
 
+## Cocoapods
+
+When you need a library, first look for it in cocoapods. if you can not find it, or if you find yourself not meet your needs or expectations, create your own pod, and share. To know more about it, take a look at the [CocoaPods Guide](https://guides.cocoapods.org)
+
+
 # Other Objective-C Style Guides
 
 If ours doesn’t fit your tastes, have a look at some other style guides:
