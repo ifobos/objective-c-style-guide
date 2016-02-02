@@ -28,7 +28,7 @@ Here are some of the documents from Apple that informed the style guide. If some
 * [Basic Code Principles](#basic-code-principles)
 * [CocoaPods](#cocoapods)
 * [Xcode Project](#xcode-project)
-
+* [Recommendations](#recommendations)
 ## Code Organization
 
 * `init` and `dealloc` should always be placed at the top of the implementation
@@ -1033,6 +1033,11 @@ When possible, always turn on “Treat Warnings as Errors” in the target’s B
 
 When you need a library, first look for it in cocoapods. if you can not find it, or if you find yourself not meet your needs or expectations, create your own pod, and share. To know more about it, take a look at the [CocoaPods Guide](https://guides.cocoapods.org)
 
+## Recommendations
+
+* Read about [SOLID](https://en.wikipedia.org/wiki/SOLID_(object-oriented_design))
+* Read about [MVVM](https://www.objc.io/issues/13-architecture/mvvm/)
+* Use [Dash](https://itunes.apple.com/us/app/dash-3-api-docs-snippets./id449589707?mt=12) for your snippets
 
 # Other Objective-C Style Guides
 
