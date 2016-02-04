@@ -112,18 +112,7 @@ else {
 ### Line Break and Whitespace
 
 * There should be exactly one blank line between methods to aid in visual clarity and organization.
-* Whitespace within methods should be used to separate functionality (though often this can indicate an opportunity to split the method into several, smaller methods). In methods with long or verbose names, a single line of whitespace may be used to provide visual separation before the method’s body.
-
-**Example**
-
-```objc
-
-- (void)initWithUser:(User *)newUser firstname:(NSString *)firstname lastname:(NSString *)lastname {
-            
-            // body...
-}
-```
-
+* Whitespace within methods should be used to separate functionality (though often this can indicate an opportunity to split the method into several, smaller methods). 
 * `@synthesize` and `@dynamic` should each be declared on new lines in the implementation.
 * Separate imports from the rest of your file by 1 space. Optionally group imports if there are many (but try to have less dependencies). Generally strive to include frameworks first.
 
@@ -206,7 +195,6 @@ if (alpha + beta <= 0) && (kappa + phi > 0) {
 
 ```objc
 - (void)awakeFromNib {
-
     UIStoryboard *signatureStoryboard                   = [UIStoryboard storyboardWithName:@"ABCPopoverSignature" bundle:nil];
     self.signatureViewController                        = [signatureStoryboard instantiateViewControllerWithIdentifier:@"ABCPopoverSignature"];
     self.signatureViewController.modalPresentationStyle = UIModalPresentationPopover;
@@ -824,7 +812,6 @@ typedef NS_OPTIONS(NSUInteger, ABCCategory) {
 Singleton objects should use a thread-safe pattern for creating their shared instance.
 ```objc
 + (instancetype)sharedInstance {
-
   static id sharedInstance = nil;
 
   static dispatch_once_t onceToken;
