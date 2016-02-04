@@ -1022,9 +1022,10 @@ When you need a library, first look for it in cocoapods. if you can not find it,
 
 ## Recommendations
 
-* Read about [SOLID](https://en.wikipedia.org/wiki/SOLID_(object-oriented_design))
-* Read about [MVVM](https://www.objc.io/issues/13-architecture/mvvm/)
-* Use [Dash](https://itunes.apple.com/us/app/dash-3-api-docs-snippets./id449589707?mt=12) for your snippets
+* Read about [SOLID](https://en.wikipedia.org/wiki/SOLID_(object-oriented_design)).
+* Read about [MVVM](https://www.objc.io/issues/13-architecture/mvvm/).
+* Use [Dash](https://itunes.apple.com/us/app/dash-3-api-docs-snippets./id449589707?mt=12) for your snippets.
+* Use [BBUncrustifyPlugin-Xcode](https://github.com/benoitsan/BBUncrustifyPlugin-Xcode) to help format your code with [uncrustify.cfg](/uncrustify.cfg) configuration file.
 
 # Other Objective-C Style Guides
 
