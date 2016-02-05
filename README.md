@@ -35,48 +35,81 @@ Here are some of the documents from Apple that informed the style guide. If some
 * Use `#pragma mark -` to categorize methods in functional groupings and protocol/delegate implementations following this general structure.
 
 ```objc
-#pragma mark - Static Methods
+#pragma mark - Class Methods
+
++ (instancetype)sharedInstance {
+    ...
+}
+
 #pragma mark - Lifecycle
 
-- (instancetype)init {}
-- (void)dealloc {}
+- (instancetype)init {
+    ...
+}
+- (void)dealloc {
+    ...
+}
 
 // If this object conforms to NSCopying
 #pragma mark - NSCopying
 
-- (id)copyWithZone:(NSZone *)zone {}
+- (id)copyWithZone:(NSZone *)zone {
+    ...
+}
 
 // If this overrides `NSObject`'s `description` method
 #pragma mark - NSObject
 
-- (NSString *)description {}
+- (NSString *)description {
+    ...
+}
 
 // If this object is a UIViewController subclass
 #pragma mark - View Lifecycle
 
-- (void)viewDidLoad {}
-- (void)viewWillAppear:(BOOL)animated {}
-- (void)didReceiveMemoryWarning {}
+- (void)viewDidLoad {
+    ...
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    ...
+}
+
+- (void)didReceiveMemoryWarning {
+    ...
+}
 
 #pragma mark - Overriding Methods
 
-- (void)setParentProperty:(id)value {}
-- (id)parentProperty {}
+- (void)setParentProperty:(id)value {
+    ...
+}
+
+- (id)parentProperty {
+    ...
+}
 
 // If this is a `UIView` subclass
 #pragma mark - Views
 
-- (UIView *)lazyLoadedView {}
+- (UIView *)lazyLoadedView {
+    ...
+}
 
 #pragma mark - Public
 
-- (void)publicMethod {}
+- (void)publicMethod {
+    ...
+}
 
 #pragma mark - Private
 
-- (void)privateMethod {}
+- (void)privateMethod {
+    ...
+}
 
 #pragma mark - Protocols conformance
+
 #pragma mark - Pragma for each delegate
 ```
 
@@ -195,20 +228,16 @@ if (alpha + beta <= 0) && (kappa + phi > 0) {
 
 ```objc
 - (void)awakeFromNib {
-    UIStoryboard *signatureStoryboard                   = [UIStoryboard storyboardWithName:@"ABCPopoverSignature" bundle:nil];
-    self.signatureViewController                        = [signatureStoryboard instantiateViewControllerWithIdentifier:@"ABCPopoverSignature"];
+    UIStoryboard *signatureStoryboard = [UIStoryboard storyboardWithName:@"ABCPopoverSignature" bundle:nil];
+    self.signatureViewController = [signatureStoryboard instantiateViewControllerWithIdentifier:@"ABCPopoverSignature"];
     self.signatureViewController.modalPresentationStyle = UIModalPresentationPopover;
-    self.signatureViewController.preferredContentSize   = CGSizeMake(ABCPopoverSignatureWidth, ABCPopoverSignatureHeight);
-    self.signatureViewController.signatureImageView     = self;
+    self.signatureViewController.preferredContentSize = CGSizeMake(ABCPopoverSignatureWidth, ABCPopoverSignatureHeight);
+    self.signatureViewController.signatureImageView = self;
     
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(initiateSignatureCapture)];
     [self addGestureRecognizer:tapRecognizer];
 }
 ```
-
-### Alignment
-
-* Align "=" signs within the same code block
 
 ## Naming
 
@@ -385,7 +414,31 @@ Methods and properties added in categories should be named with an app- or organ
 
 - Don't use `id` is prefer `uid`, do not use any reserved words as property names on an object.
 - Don't use `description` is prefer `about`, `description` is method of NSObject. All classes that inherit from NSObject inherit the method. It produces a textual description of the object for debugging purposes. 
+- To name IBOutlets properties don't forget to sufix with same kind of class.
 
+**Example:**
+
+```objc
+@interface ABCRepository ()
+
+@property (nonatomic, strong) UIView *headerView;
+@property (nonatomic, strong) UILabel *titleLabel;
+@property (nonatomic, strong) UIWebView *mainWebView;
+
+@end
+```
+
+**Not:**
+
+```objc
+@interface ABCRepository ()
+
+@property (nonatomic, strong) UIView *header;
+@property (nonatomic, strong) UILabel *title;
+@property (nonatomic, strong) UIWebView *main;
+
+@end
+```
 
 ## Properties
 
@@ -692,10 +745,10 @@ This helps disambiguate in cases when an object is the delegate for multiple sim
 **Example:**
 
 ```objc
-NSArray *names                = @[@"Brian", @"Matt", @"Chris", @"Alex", @"Steve", @"Paul"];
+NSArray *names = @[@"Brian", @"Matt", @"Chris", @"Alex", @"Steve", @"Paul"];
 NSDictionary *productManagers = @{@"iPhone" : @"Kate", @"iPad" : @"Kamal", @"Mobile Web" : @"Bill"};
-NSNumber *shouldUseLiterals   = @YES;
-NSNumber *buildingZIPCode     = @10018;
+NSNumber *shouldUseLiterals = @YES;
+NSNumber *buildingZIPCode = @10018;
 ```
 
 **Not:**
@@ -718,9 +771,9 @@ When accessing the `x`, `y`, `width`, or `height` of a `CGRect`, always use the 
 ```objc
 CGRect frame = self.view.frame;
 
-CGFloat x      = CGRectGetMinX(frame);
-CGFloat y      = CGRectGetMinY(frame);
-CGFloat width  = CGRectGetWidth(frame);
+CGFloat x = CGRectGetMinX(frame);
+CGFloat y = CGRectGetMinY(frame);
+CGFloat width = CGRectGetWidth(frame);
 CGFloat height = CGRectGetHeight(frame);
 ```
 
@@ -778,8 +831,8 @@ typedef NS_ENUM(NSInteger, ABCUserState) {
 //You can also make explicit value assignments (showing older k-style constant definition):
 
 typedef NS_ENUM(NSInteger, ABCGlobalConstants) {
-  ABCPinSizeMin  = 1,
-  ABCPinSizeMax  = 5,
+  ABCPinSizeMin = 1,
+  ABCPinSizeMax = 5,
   ABCPinCountMin = 100,
   ABCPinCountMax = 500,
 };
@@ -800,10 +853,10 @@ When working with bitmasks, use the `NS_OPTIONS` macro.
 
 ```objc
 typedef NS_OPTIONS(NSUInteger, ABCCategory) {
-    ABCCategoryFootwears    = 1 << 0,
-    ABCCategoryHandbags     = 1 << 1,
-    ABCCategoryAccessories  = 1 << 2,
-    ABCCategoryRandom       = 1 << 3
+    ABCCategoryFootwears = 1 << 0,
+    ABCCategoryHandbags = 1 << 1,
+    ABCCategoryAccessories = 1 << 2,
+    ABCCategoryRandom = 1 << 3
 };
 ```
 
@@ -883,8 +936,7 @@ Create documentation of the different classes in its .h files
  
  @return The sum of the two numbers passed in.
  */
-+ (NSInteger)addNumber:(NSInteger)firstNumber 
-              toNumber:(NSInteger)secondNumber;
++ (NSInteger)addNumber:(NSInteger)firstNumber toNumber:(NSInteger)secondNumber;
 
 ```
 >Check out the [HeaderDoc Tags](https://developer.apple.com/library/mac/documentation/DeveloperTools/Conceptual/HeaderDoc/tags/tags.html#//apple_ref/doc/uid/TP40001215-CH346-CHDJFEGF)
@@ -943,7 +995,8 @@ Where class constructor methods are used, these should always return type of 'in
 
 ## Constants
 
-Avoid magic numbers with no meaning, preferring instead a named variable or constant (see following examples).
+- Avoid declaring constants inside ProjectName-Prefix.pch file.
+- Avoid magic numbers with no meaning, preferring instead a named variable or constant (see following examples).
 
 ### Integers
 
